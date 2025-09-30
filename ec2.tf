@@ -6,6 +6,7 @@ resource "aws_instance" "geico_web" {
     vpc_security_group_ids = [aws_security_group.geico_sg.id]
     associate_public_ip_address = true
     count = 5
+    user_data = file("${path.module}/setup.sh")
 
     tags = {
         Name = "geico_Web_server_${count.index}"
