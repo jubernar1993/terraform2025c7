@@ -5,7 +5,7 @@ resource "aws_instance" "geico_web" {
   subnet_id                   = aws_subnet.geico_public.id
   vpc_security_group_ids      = [aws_security_group.geico_sg.id]
   associate_public_ip_address = true
-  count                       = 5
+  count                       = 10
   user_data                   = file("${path.module}/setup.sh")
 
   tags = {
